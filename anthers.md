@@ -33,7 +33,9 @@ anthers(ath = dta_mut,formula = c(AZ, AI, AO) ~ t * I(t^2) * genotyp, emformula 
 
 
 Function for import of dataset in long horizontal format, e.g.:
- genotyp variant flowers anthers AZ  AI  AO  AZ  AI  AO  AZ  AI  AO  AZ  AI  AO
+
+genotyp variant flowers anthers AZ  AI  AO  AZ  AI  AO  AZ  AI  AO  AZ  AI  AO
+
 WT      cut     30       120   120  0   0  118   2   0  114  4   2  10 	13   4
 
 ```r
