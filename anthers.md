@@ -13,32 +13,17 @@ pdf_document: default
 ### By Stanislav Vosolsobě
   
 
+## Definition of function
 
-      
+### Function for import of dataset in long horizontal format
 
+Works with input format of this type
 
-```r
-setwd("/media/Home/home/standa/Plocha/Anička/Mutanti_kveteni/")
-
-
-dta <- import_horiz(filename = "mutanti_join",header=T, dt=3)
-anthers(ath = dta,formula = c(AZ, AI, AO) ~ t * I(t^2) * genotyp * variant, emformula = ~ variant | genotyp, dt = 3,col = c("blue","red","coral","darkred","gold"),pdf = F,name = "mutanti_join")
-        
-dta_wt <- droplevels(dta[dta$genotyp=="WT",])
-anthers(ath = dta_wt,formula = c(AZ, AI, AO) ~ t * I(t^2) * variant, emformula = ~ variant, dt = 3,col = c("darkgreen","sienna"),pdf = F,name = "attach")
-
-dta_mut <- droplevels(dta[dta$variant=="intact",])
-anthers(ath = dta_mut,formula = c(AZ, AI, AO) ~ t * I(t^2) * genotyp, emformula = ~ genotyp, dt = 3,col = c("blue","red","coral","darkred","gold"),pdf = F,name = "mutanti")
-```
-
-
-Function for import of dataset in long horizontal format, e.g.:
-  
 ```r
 genotyp variant flowers anthers AZ  AI  AO  AZ  AI  AO  AZ  AI  AO  AZ  AI  AO
 WT      cut     30       120   120  0   0  118   2   0  114  4   2  10 	13   4
 ```
-
+Function definition
 
 ```r
 import_horiz <- function(filename,   # input data
@@ -67,7 +52,9 @@ import_horiz <- function(filename,   # input data
 }
 ```
 
-Function for the logistic regression
+## Function for the logistic regression
+
+Works with object resulting from `import_horiz` function
 
 ```r
 anthers <- function(ath,   # input data, data frame with rows: time, variantID, # of closed , # of initiated and # of open anthers
@@ -190,4 +177,26 @@ anthers <- function(ath,   # input data, data frame with rows: time, variantID, 
   if(pdf) dev.off()
 }
 ```
+
+
+## The analysis    
+
+For complete analysis of given dataset
+
+```r
+setwd("/media/Home/home/standa/Plocha/Anička/Mutanti_kveteni/")
+dta <- import_horiz(filename = "mutanti_join",header=T, dt=3)
+anthers(ath = dta,formula = c(AZ, AI, AO) ~ t * I(t^2) * genotyp * variant, emformula = ~ variant | genotyp, dt = 3,col = c("blue","red","coral","darkred","gold"),pdf = F,name = "mutanti_join")
+```
+
+For analysis of subset of the dataset
+
+```r
+dta_wt <- droplevels(dta[dta$genotyp=="WT",])
+anthers(ath = dta_wt,formula = c(AZ, AI, AO) ~ t * I(t^2) * variant, emformula = ~ variant, dt = 3,col = c("darkgreen","sienna"),pdf = F,name = "attach")
+
+dta_mut <- droplevels(dta[dta$variant=="intact",])
+anthers(ath = dta_mut,formula = c(AZ, AI, AO) ~ t * I(t^2) * genotyp, emformula = ~ genotyp, dt = 3,col = c("blue","red","coral","darkred","gold"),pdf = F,name = "mutanti")
+```
+
 
