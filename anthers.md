@@ -1,5 +1,5 @@
 ---
-  Title: Anther dehiscence
+Title: Anther dehiscence
 Author: "Anna Kampová, Jan Petrášek & Stanislav Vosolsobě"
 output:
   html_document:
@@ -52,7 +52,7 @@ import_horiz <- function(filename,   # input data
 }
 ```
 
-## Function for the logistic regression
+### Function for the logistic regression
 
 Works with object resulting from `import_horiz` function
 
