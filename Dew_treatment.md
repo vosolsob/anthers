@@ -1,5 +1,5 @@
 ---
-Title: treatment treatment of anthers
+Title: Dew treatment of anthers
 Author: "Anna Kampová, Jan Petrášek & Stanislav Vosolsobě"
 output:
   html_document:
@@ -8,7 +8,7 @@ word_document: default
 pdf_document: default
 ---
   
-# Statistical analysis of anther dehiscence after treatment treatment
+# Statistical analysis of anther dehiscence after dew treatment
   
 ### By Stanislav Vosolsobě
   
@@ -17,9 +17,9 @@ This script works with input format of this type
 
 ```r
 time	treatment	AZ	AI	AO
-8	    treatment	      49	1	   0
+8	    DEW	      49	1	   0
 8	    CTR	       0	1	  49
-9	    treatment	      48	2	   0
+9	    DEW	      48	2	   0
 9	    CTR	       0	0	  50
 .     ...       ..  .   ..
 ```
@@ -73,8 +73,8 @@ tp <- (80:200)/10
 
 AIne <- predict(mAI,newdata = data.frame(time=tp,treatment=rep("CTR",length(tp))),type="response",se.fit = T)
 AOne <- predict(mAO,newdata = data.frame(time=tp,treatment=rep("CTR",length(tp))),type="response",se.fit = T)
-AIano <- predict(mAI,newdata = data.frame(time=tp,treatment=rep("treatment",length(tp))),type="response",se.fit = T)
-AOano <- predict(mAO,newdata = data.frame(time=tp,treatment=rep("treatment",length(tp))),type="response",se.fit = T)
+AIano <- predict(mAI,newdata = data.frame(time=tp,treatment=rep("DEW",length(tp))),type="response",se.fit = T)
+AOano <- predict(mAO,newdata = data.frame(time=tp,treatment=rep("DEW",length(tp))),type="response",se.fit = T)
 
 
 lines(AIne$fit~tp,lwd=2,col="orange")
