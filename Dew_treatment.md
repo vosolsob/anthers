@@ -16,7 +16,7 @@ pdf_document: default
 This script works with input format of this type
 
 ```r
-time	treatment	AZ	AI	AO
+time	treatment AZ	AI	AO
 8	    DEW	      49	1	   0
 8	    CTR	       0	1	  49
 9	    DEW	      48	2	   0
