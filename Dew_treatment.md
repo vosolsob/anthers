@@ -24,6 +24,7 @@ time treatment  AZ  AI   AO
 .     ...       ..   .   ..
 ```
 
+Where `AZ` are counts of flowers with closed anthers, `AI` are counts of flowers with anthers with visible slit and `AO` are counts of anthers with fully opened anthers.
 
 
 ## Read input data
